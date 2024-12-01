@@ -30,6 +30,21 @@ router.post('/', async (req,res)=> {
     }
 })
 
+//Updating one
+router.patch('/:id',getsubscriber, async (req,res)=> {
+    
+    if (req.body.name != null) {
+        res.subscriber.name = req.body.name
+    }
+    try {
+        const updatedsubscriber = await res.subscriber.save()
+        res.json(updatedsubscriber)    
+    } catch (error) {
+        res.status(400).json({message: error.message})
+    }
+    
+})
+
 //middleware function to get the subscriber from the database
 async function getsubscriber(req, res, next) {
     let subscriber
