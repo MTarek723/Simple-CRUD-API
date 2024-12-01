@@ -24,3 +24,18 @@ router.post('/', async (req,res)=> {
         res.status(400).json({message: error.message})
     }
 })
+
+//middleware function to get the subscriber from the database
+async function getsubscriber(req, res, next) {
+    let subscriber
+    try {
+        subscriber = await Subscriber.findById(req.params.id)
+        if (subscriber === null) {
+            return res.status(404).json({message: 'No Subscriber Found!!'})
+        }
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+    res.subscriber = subscriber
+    next()
+}
