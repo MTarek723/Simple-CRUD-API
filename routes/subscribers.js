@@ -45,6 +45,16 @@ router.patch('/:id',getsubscriber, async (req,res)=> {
     
 })
 
+//Deleting one
+router.delete('/:id',getsubscriber, async (req,res)=> {
+    try {
+        await res.subscriber.deleteOne()
+        res.json({message: "Subscriber Deleted Successfully"});
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+})
+
 //middleware function to get the subscriber from the database
 async function getsubscriber(req, res, next) {
     let subscriber
