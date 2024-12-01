@@ -69,3 +69,5 @@ async function getsubscriber(req, res, next) {
     res.subscriber = subscriber
     next()
 }
+
+module.exports = router
