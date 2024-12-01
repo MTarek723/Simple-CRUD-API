@@ -1,0 +1,30 @@
+//GET ALL
+GET http://localhost:5000/subscribers
+
+###
+
+//GET ONE
+GET http://localhost:5000/subscribers/{subscriber.id}
+
+###
+
+//CREATE ONE
+POST http://localhost:5000/subscribers
+#Content-Type: application/json
+#{
+#    "name": "John"
+#}
+
+###
+
+//DELETE ONE
+DELETE http://localhost:5000/subscribers/{subscriber.id}
+
+###
+
+//UPDATE ONE
+PATCH http://localhost:5000/subscribers/{subscriber.id}
+#Content-Type: application/json
+#{
+#    "name": "John"
+#} 
