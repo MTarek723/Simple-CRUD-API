@@ -12,6 +12,11 @@ router.get('/', async (req,res)=> {
     }
 })
 
+//Getting one
+router.get('/:id',getsubscriber, (req,res)=> {
+    res.json(res.subscriber)
+})
+
 //Creating one
 router.post('/', async (req,res)=> {
     const subscriber = new Subscriber({
